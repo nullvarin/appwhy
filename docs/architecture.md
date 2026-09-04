@@ -41,17 +41,17 @@ Components:
 - `ExplainCommand`: runs explanation and formats output
 - `OutputFormatter`: generates text and JSON from shared models
 
-### AppWhyCoreTestRunner
+### AppWhyCoreTests
 
-A lightweight executable target that contains deterministic assertions.
+Standard SwiftPM test target using XCTest.
 
-It does not use XCTest. It is run with:
+Run with:
 
-```text
-swift run AppWhyCoreTestRunner
+```bash
+swift test
 ```
 
-This keeps the project usable on systems without Xcode.
+This target replaced the previous custom test runner and is the primary test entry point.
 
 ## Data flow
 
