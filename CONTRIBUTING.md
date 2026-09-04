@@ -5,25 +5,25 @@ Contributions are welcome.
 ## Development environment
 
 - macOS 26.0 or later
-- Swift 6.3 or later
+- Swift 6.3.3
 
-Xcode is not required. The Swift toolchain from the Command Line Tools is sufficient.
+The project uses SwiftPM and does not require an Xcode project.
 
 ## Building
 
-```text
+```bash
 swift build
 ```
 
 ## Testing
 
-Run the custom test runner:
+Run the XCTest suite:
 
-```text
-swift run AppWhyCoreTestRunner
+```bash
+swift test
 ```
 
-Do not add XCTest imports or require `swift test`.
+Do not add custom test runners. Use XCTest for new tests.
 
 ## Style
 
