@@ -3,7 +3,7 @@ import AppWhyCore
 
 func printHelp() {
     print("""
-    appwhy 0.1.0
+    appwhy 0.2.0
 
     Usage:
       appwhy inspect <target> [--format text|json] [--verbose]
@@ -26,7 +26,7 @@ func printHelp() {
 }
 
 func printVersion() {
-    print("appwhy 0.1.0")
+    print("appwhy 0.2.0")
 }
 
 let arguments = Array(CommandLine.arguments.dropFirst())
