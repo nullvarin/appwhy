@@ -17,7 +17,7 @@ Otherwise, appwhy treats the argument as a bundle identifier and resolves it thr
 
 Collect and print evidence about the application.
 
-```text
+```bash
 appwhy inspect /Applications/MyApp.app
 appwhy inspect com.example.MyApp
 ```
@@ -30,7 +30,7 @@ Use `--format json` for machine-readable JSON output.
 
 Run deterministic verification checks.
 
-```text
+```bash
 appwhy verify /Applications/MyApp.app
 ```
 
@@ -55,7 +55,7 @@ If any check reports `failed`, the exit code is `1`. Warning and `notVerifiable`
 
 Print deterministic findings based on collected evidence.
 
-```text
+```bash
 appwhy explain /Applications/MyApp.app
 ```
 
@@ -75,7 +75,7 @@ All commands accept `--format json`.
 
 Example:
 
-```text
+```bash
 appwhy inspect /Applications/MyApp.app --format json
 ```
 
@@ -95,12 +95,12 @@ For `verify`, verbose output includes check IDs.
 
 Display help:
 
-```text
+```bash
 appwhy --help
 ```
 
 Display version:
 
-```text
+```bash
 appwhy --version
 ```
