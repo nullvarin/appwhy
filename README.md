@@ -16,7 +16,7 @@ appwhy requires macOS 26.0 or later. It uses modern public Apple APIs and does n
 
 Install appwhy with Homebrew using the official tap:
 
-```text
+```bash
 brew tap nullvarin/appwhy
 brew install appwhy
 ```
@@ -25,7 +25,7 @@ brew install appwhy
 
 Clone the repository and build a release binary with SwiftPM:
 
-```text
+```bash
 git clone https://github.com/nullvarin/appwhy.git
 cd appwhy
 swift build -c release
@@ -37,19 +37,19 @@ The resulting executable is located at:
 .build/release/appwhy
 ```
 
-Copy or symlink it into a directory on your `PATH`, for example:
+To make it available on `PATH`, copy or symlink it into a directory that is already on `PATH`. For example:
 
-```text
+```bash
 cp .build/release/appwhy /usr/local/bin/appwhy
 ```
 
-Adjust the destination to match your preferred local bin directory.
+If `/usr/local/bin` is not writable or not on `PATH`, choose another directory and add it to your shell configuration.
 
 ## Usage
 
 Run appwhy with one of the supported subcommands:
 
-```text
+```bash
 appwhy inspect <target> [--format text|json] [--verbose]
 appwhy verify <target> [--format text|json] [--verbose]
 appwhy explain <target> [--format text|json] [--verbose]
@@ -99,47 +99,27 @@ Pass `--verbose` or `-v` to include additional detail such as evidence IDs, sour
 - `3`: target could not be resolved
 - `4`: evidence collection failed in a way that prevented meaningful output
 
-## Troubleshooting
-
-### `swift build` fails with missing XCTest
-
-This project intentionally does not use XCTest because it must work without Xcode. Tests are run using a small custom test runner:
-
-```text
-swift run AppWhyCoreTestRunner
-```
-
-If you see an error about `XCTest`, make sure you are not running `swift test`. Use the custom runner command instead.
-
-### Target not found
-
-If appwhy exits with code `3`, the supplied target could not be resolved as a path or bundle identifier. Check that the path exists and ends with `.app`, or that the bundle identifier is correct.
-
-### Code signature validation reports unexpected failures
-
-appwhy uses Apple's public Security framework APIs with `kSecCSDefaultFlags`. It does not add additional validation flags. Nested code or unusual bundle layouts may still produce results that require manual inspection.
-
 ## Development
 
 Build the debug executable:
 
-```text
+```bash
 swift build
 ```
 
-Run the test runner:
+Run the test suite:
 
-```text
-swift run AppWhyCoreTestRunner
+```bash
+swift test
 ```
 
 Build a release executable:
 
-```text
+```bash
 swift build -c release
 ```
 
-The project does not require Xcode. Swift and the Command Line Tools are sufficient.
+The project is SwiftPM-based and does not require an Xcode project or workspace.
 
 ## Architecture
 
@@ -147,8 +127,6 @@ The project is a SwiftPM package with two main targets:
 
 - `AppWhyCore`: inspection, verification, and explanation logic
 - `appwhy`: command-line interface and output formatting
-
-An additional `AppWhyCoreTestRunner` target provides a lightweight test runner that does not depend on XCTest.
 
 See `docs/architecture.md` for more detail.
 
