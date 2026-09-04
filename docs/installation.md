@@ -5,15 +5,15 @@ appwhy is distributed as a single executable built with SwiftPM.
 ## Requirements
 
 - macOS 26.0 or later
-- Swift 6.3 or later toolchain
+- Swift 6.3.3
 
-Xcode is not required. The Swift toolchain available through the Command Line Tools is sufficient.
+Xcode is not required for building the executable. XCTest tests use the standard SwiftPM test workflow.
 
 ## Homebrew
 
 Install using the official tap:
 
-```text
+```bash
 brew tap nullvarin/appwhy
 brew install appwhy
 ```
@@ -24,14 +24,14 @@ The formula installs the release binary and places it on `PATH`.
 
 Clone the repository:
 
-```text
+```bash
 git clone https://github.com/nullvarin/appwhy.git
 cd appwhy
 ```
 
 Build the release binary:
 
-```text
+```bash
 swift build -c release
 ```
 
@@ -41,33 +41,33 @@ The binary is produced at:
 .build/release/appwhy
 ```
 
-To make it available on `PATH`, copy or symlink it to a suitable directory:
+To make it available on `PATH`, copy or symlink it to a directory that is already in your `PATH`. Common locations include `/usr/local/bin` and `$HOME/.local/bin`. For example:
 
-```text
+```bash
 cp .build/release/appwhy /usr/local/bin/appwhy
 ```
 
-If `/usr/local/bin` is not on `PATH` or is not writable, choose another directory and add it to your shell configuration.
+If the destination is not on `PATH` or is not writable, choose another directory and add it to your shell configuration.
 
 ## Verifying the installation
 
 Confirm the version:
 
-```text
+```bash
 appwhy --version
 ```
 
 Expected output:
 
 ```text
-appwhy 0.1.0
+appwhy 0.2.0
 ```
 
 ## Uninstalling
 
 For Homebrew:
 
-```text
+```bash
 brew uninstall appwhy
 brew untap nullvarin/appwhy
 ```
