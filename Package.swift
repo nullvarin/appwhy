@@ -6,8 +6,7 @@ let package = Package(
     name: "appwhy",
     products: [
         .library(name: "AppWhyCore", targets: ["AppWhyCore"]),
-        .executable(name: "appwhy", targets: ["appwhy"]),
-        .executable(name: "AppWhyCoreTestRunner", targets: ["AppWhyCoreTestRunner"])
+        .executable(name: "appwhy", targets: ["appwhy"])
     ],
     targets: [
         .target(name: "AppWhyCore"),
@@ -15,8 +14,8 @@ let package = Package(
             name: "appwhy",
             dependencies: ["AppWhyCore"]
         ),
-        .executableTarget(
-            name: "AppWhyCoreTestRunner",
+        .testTarget(
+            name: "AppWhyCoreTests",
             dependencies: ["AppWhyCore"]
         )
     ]
